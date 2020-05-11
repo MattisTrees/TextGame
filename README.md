@@ -6,6 +6,6 @@ A Simple Text-Based game played through your phone's SMS service. There is nothi
 None of the LAMP code is hosted here. The TextGame directory contains the main configuration files for the Django 
 installation. This project utilizes the Twilio API as part of the Django back end to handle the SMS messages sent to the server from Twilio as GET requests. 
 
-  To run the server, SSH in and navigate to SafeHome Directory from the root folder and run the following command:
+  To run the server, SSH in and navigate to TextGame Directory (the folder with the manage.py file) from the root folder and run the following command:
   
 >python manage.py runserver [::]:[DESIRED PORT NUMBER]
