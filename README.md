@@ -1,1 +1,3 @@
 # TextGame
+## Basics
+Hello there!
