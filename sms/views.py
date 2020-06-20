@@ -34,12 +34,11 @@ def sms_response(request):
 			# Add a new Game Session
 			newGame = Game(phone = UserNumber, previous_response = UserInput)
 			newGame.save()
-			resp.message("Game not found!")
-			print("Game not found!")
+			resp.message("Starting New Game Session!")
 			return HttpResponse(str(resp))
 
 def determine_response(UserInput):
 	if UserInput == "Hello":
 		return "Hello to you, too!"
 	else:
-		return "You said " + UserInput + " Please say 'Hello', that's the only word I know."
+		return "You said \"" + UserInput + "\" Please say 'Hello', that's the only word I know."
