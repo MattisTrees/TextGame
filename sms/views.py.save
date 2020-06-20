@@ -2,9 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-# Import the models table
-from sms.models import *
-# Import the twilio API
 from twilio.twiml.messaging_response import MessagingResponse
 
 # Create your views here.
@@ -27,19 +24,14 @@ def sms_response(request):
 		# See if the number already has a session
 		try:
 			existingGame = Game.objects.get(phone=UserNumber)
-			msg = resp.message("Hello!")
-			print(UserNumber + " - " + UserInput)
-			return HttpResponse(str(resp))
-		except:
-			# Add a new Game Session
-			newGame = Game(phone = UserNumber, previous_response = UserInput)
-			newGame.save()
-			resp.message("Game not found!")
-			print("Game not found!")
-			return HttpResponse(str(resp))
+			# If no exception is raised then we pull all of the game data and continue the game
+		msg = resp.message(determine_response(UserInput))
+		print(UserNumber + " - " + UserInput)
+		return HttpResponse(str(resp))
+
 
 def determine_response(UserInput):
 	if UserInput == "Hello":
 		return "Hello to you, too!"
 	else:
-		return "You said " + UserInput + "Please say 'Hello', that's the only word I know."
+		return "Please say 'Hello', that's the only word I know."
