@@ -27,8 +27,8 @@ def sms_response(request):
 		# See if the number already has a session
 		try:
 			existingGame = Game.objects.get(phone=UserNumber)
-			msg = resp.message("Hello!")
-			print(UserNumber + " - " + UserInput)
+			msg = resp.message(determine_response(UserInput))
+			print("\n" + UserNumber + " - " + UserInput + "\n")
 			return HttpResponse(str(resp))
 		except:
 			# Add a new Game Session
@@ -42,4 +42,4 @@ def determine_response(UserInput):
 	if UserInput == "Hello":
 		return "Hello to you, too!"
 	else:
-		return "You said " + UserInput + "Please say 'Hello', that's the only word I know."
+		return "You said " + UserInput + " Please say 'Hello', that's the only word I know."
