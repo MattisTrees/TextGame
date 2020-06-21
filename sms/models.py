@@ -11,9 +11,9 @@ class Game(models.Model):
 	# Integer representing how far the player has traveled
 	milesTraveled = models.IntegerField('Miles Traveled', default = 0)
 	# Integer representing how far the enemy has traveled
-	enemyTraveled = models.IntegerField('Enemy Traveled', default = 0)
+	enemyTraveled = models.IntegerField('Enemy Traveled', default = -20)
 	# Integer representing how tired the camel is
-	camelTirednes = models.IntegerField('Camel Tiredness', default = 0)
+	camelTiredness = models.IntegerField('Camel Tiredness', default = 0)
 	# Integer representing the thirst of the player
 	thirst = models.IntegerField('Thirst', default = 0)
 	# Integer representing how how much water the player has
